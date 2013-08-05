@@ -4,6 +4,7 @@ defined ( 'APPLICATION_PATH' ) || define ( 'APPLICATION_PATH', realpath ( dirnam
 defined ( 'APPLICATION_ENV' ) || define ( 'APPLICATION_ENV', realpath ( dirname ( __FILE__ ) . '/../center' ) );
 $o = new Application ( "12", "12" );
 $o->run ();
+echo "f";
 
 
 

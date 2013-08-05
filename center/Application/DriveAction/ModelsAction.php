@@ -13,6 +13,7 @@
   	public function connectSafeByConfig()
   	{
   		$data=json_decode(file_get_contents(APPLICATION_PATH.'/configs/config.json'),true);
+  		
   		return $this->sql->connectsqlSafe($data['sqladdress'], $data['sqlname'], $data['sqlpassword'],$data['dbname']);
   	}
   	public function connectsqlDirect($sqlName,$username,$password,$dbname)
