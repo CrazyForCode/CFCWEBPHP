@@ -33,16 +33,32 @@ class sqlTest extends PHPUnit_Extensions_Database_TestCase {
 	 * @see PHPUnit_Extensions_Database_TestCase::getConnection()
 	 */
 	protected function getConnection() {
-		// TODO Auto-generated method stub
-		
-	}
+	 if($this->_connectionMock == null) {
+	 	$params = array (
+	 			'host' => 'localhost',
+	 			'username' => 'root',
+	 			'password' => '6191080',
+	 			'dbname' => 'cfcwebphp'
+	 	);
+            $connection = Zend_Db::factory('PDO_MYSQL', $params);
+            $this->_connectionMock = $this->createZendDbConnection(
+                $connection, 'sql'
+            );
+            Zend_Db_Table_Abstract::setDefaultAdapter($connection);
+        }
+        return $this->_connectionMock;
+    }
+
 
 	/* (non-PHPdoc)
 	 * @see PHPUnit_Extensions_Database_TestCase::getDataSet()
 	 */
 	protected function getDataSet() {
 		// TODO Auto-generated method stub
-		
+		echo "d";
+	}
+	public function testsql(){
+	
 	}
 
 }
